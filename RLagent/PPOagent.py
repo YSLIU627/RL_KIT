@@ -86,6 +86,7 @@ class PPO_agent(Agent) :
 
     def update(self):
         self.policy_old.load_state_dict(self.policy.state_dict())
+        self.memory.clear_memory()
     def save(self):
         torch.save(self.policy.state_dict(), './save/PPO_continuous_{}.pth'.format(self.variant["env_name"]))
     def load(self):
