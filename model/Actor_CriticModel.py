@@ -42,11 +42,9 @@ class Actor_CriticModel_Continuous(nn.Module):
         dist = MultivariateNormal(action_mean, cov_mat)
         action = dist.sample()
         action_logprob = dist.log_prob(action)
-        '''
         memory.states.append(state)
         memory.actions.append(action)
         memory.logprobs.append(action_logprob)
-        '''
         return action,action_logprob
     
     def evaluate(self, state, action):   
