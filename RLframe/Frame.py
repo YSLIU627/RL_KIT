@@ -56,7 +56,7 @@ def RL_ALG(env, agent, memory, variant):
         if i_episode % variant["save_episodes"] == 0:
             agent.save()
             pickle.dump(record, open('./data/{}_{}_record.pickle'.format(variant["ALGORITHM"],variant["env_name"]), 'wb'))
-            record.clear()
+            
         if variant["Logger"] :
             SetupMylogger()    
         # logging
